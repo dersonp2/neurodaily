@@ -16,4 +16,20 @@ public class NotaAvaliacao implements Serializable {
 
     @Column (name = "ND16_NUMERO")
     private int numero;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
 }

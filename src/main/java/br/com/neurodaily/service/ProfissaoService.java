@@ -14,16 +14,24 @@ public class ProfissaoService {
 
 
     @Transactional
-    public Profissao salvar(Profissao profissao){
-        if(profissao!=null && profissao.getDescricao()!= null){
-            Profissao profissaoBusca = profissaoRepository
-                    .findByDescricao(profissao.getDescricao());
-            if(profissaoBusca != null){
-                profissao = profissaoBusca;
-            } else{
-              profissao=profissaoRepository.save(profissao);
-            }
+    public Profissao salvar(Profissao profissao) {
+        Profissao profissaoBusca = buscarProfissaoNome(profissao);
+        if (profissaoBusca != null) {
+            profissao = profissaoBusca;
+        } else {
+            profissao = profissaoRepository.save(profissao);
         }
+
         return profissao;
     }
+
+    private Profissao buscarProfissaoNome(Profissao profissao) {
+        Profissao profissaoBusca = null;
+        if (profissao != null && profissao.getDescricao() != null) {
+            profissaoBusca = profissaoRepository
+                    .findByDescricao(profissao.getDescricao());
+        }
+        return profissaoBusca;
+    }
 }
+
