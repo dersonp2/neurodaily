@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface SexoRepository extends JpaRepository<Sexo, Long> {
 
     Sexo findById(long id);
+    Sexo findByDescricao(String descricao);
 }

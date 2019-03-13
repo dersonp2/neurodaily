@@ -17,13 +17,12 @@ public class SexoService {
 
     @Transactional
     public Sexo salvar(Sexo sexo) {
-        Sexo notaAvaliacaoBusca = buscarSexo(sexo.getId());
+        Sexo notaAvaliacaoBusca = buscarSexoDescricao(sexo.getDescricao());
         if (notaAvaliacaoBusca != null) {
             sexo = notaAvaliacaoBusca;
         } else {
             sexo = sexoRepository.save(sexo);
         }
-
         return sexo;
     }
 
@@ -31,5 +30,11 @@ public class SexoService {
         Sexo notaAvaliacaoBusca = sexoRepository.findById(id.longValue());
         return notaAvaliacaoBusca;
     }
+
+    public Sexo buscarSexoDescricao(String descricao) {
+        Sexo notaAvaliacaoBusca = sexoRepository.findByDescricao(descricao);
+        return notaAvaliacaoBusca;
+    }
+
 }
 

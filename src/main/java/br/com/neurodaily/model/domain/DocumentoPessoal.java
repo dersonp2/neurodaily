@@ -14,7 +14,7 @@ public class DocumentoPessoal implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ND02_DOCUMENTO_PESSOAL_SEQ")
     @Column (name = "ND02_COD_DOCUMENTO_PESSOAL")
-    private long id;
+    private Long id;
 
     @Column (name = "ND02_CPF")
     private String cpf;
@@ -29,7 +29,46 @@ public class DocumentoPessoal implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date data;
 
-    @ManyToOne
-    @JoinColumn(name = "FKND02ND06_COD_ORGAO_EXPEDIDOR")
-    private OrgaoEspedidor orgaoEspedidor;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getSus() {
+        return sus;
+    }
+
+    public void setSus(String sus) {
+        this.sus = sus;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+//    @ManyToOne
+//    @JoinColumn(name = "FKND02ND06_COD_ORGAO_EXPEDIDOR")
+//    private OrgaoEspedidor orgaoEspedidor;
 }

@@ -31,4 +31,43 @@ public class Pessoa implements Serializable {
     @JoinColumn(name = "FKND01ND11_COD_SEXO")
     private Sexo sexo;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public DocumentoPessoal getDocumentoPessoal() {
+        return documentoPessoal;
+    }
+
+    public void setDocumentoPessoal(DocumentoPessoal documentoPessoal) {
+        this.documentoPessoal = documentoPessoal;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
 }

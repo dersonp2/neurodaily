@@ -14,12 +14,12 @@ public class Sexo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ND11_SEXO_SEQ")
     @Column (name = "ND11_COD_SEXO")
-    private long id;
+    private Long id;
 
     @Column (name = "ND11_DESCRICAO")
     private String descricao;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
