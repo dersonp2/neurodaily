@@ -34,8 +34,9 @@ public class PessoaService {
             pessoa.setSexo(sexoService.salvar(pessoa.getSexo()));
         }
         pessoa = pessoaRepository.save(pessoa);
-
+        
         return pessoa;
+
     }
 
     public Pessoa buscarPessoa(Long id) {
@@ -44,4 +45,3 @@ public class PessoaService {
     }
 
 }
-

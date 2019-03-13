@@ -31,6 +31,7 @@ public class Pessoa implements Serializable {
     @JoinColumn(name = "FKND01ND11_COD_SEXO")
     private Sexo sexo;
 
+
     public Long getId() {
         return id;
     }

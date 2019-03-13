@@ -37,7 +37,8 @@ public class PacienteService {
         Paciente paciente = pacienteRepository.findById(id.longValue());
         return paciente;
     }
-    public Paciente buscarPacienteId(String cpf) {
+
+    public Paciente buscarPacienteCpf(String cpf) {
         Paciente paciente = pacienteRepository.findByPessoaDocumentoPessoalCpf(cpf);
         return paciente;
     }

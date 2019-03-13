@@ -3,6 +3,7 @@ package br.com.neurodaily.model.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity

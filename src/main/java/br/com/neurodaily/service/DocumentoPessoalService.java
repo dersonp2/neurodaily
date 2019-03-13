@@ -17,12 +17,13 @@
 
         @Transactional
         public DocumentoPessoal salvar(DocumentoPessoal documentoPessoal) {
-            DocumentoPessoal documentoPessoalBusca = buscarDocumentoPessoal(documentoPessoal.getId());
-            if (documentoPessoalBusca != null) {
-                documentoPessoal = documentoPessoalBusca;
-            } else {
-                documentoPessoal = documentoPessoalRepository.save(documentoPessoal);
-            }
+//            DocumentoPessoal documentoPessoalBusca = buscarDocumentoPessoal(documentoPessoal.getId());
+//            if (documentoPessoalBusca != null) {
+//                documentoPessoal = documentoPessoalBusca;
+//            } else {
+//                documentoPessoal = documentoPessoalRepository.save(documentoPessoal);
+//            }
+            documentoPessoal = documentoPessoalRepository.save(documentoPessoal);
             return documentoPessoal;
         }
 
