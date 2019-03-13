@@ -12,16 +12,16 @@ public class NotaAvaliacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ND16_NOTA_AVALIACAO_SEQ")
     @Column (name = "ND16_COD_NOTA_AVALIACAO")
-    private long id;
+    private Long id;
 
     @Column (name = "ND16_NUMERO")
     private int numero;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

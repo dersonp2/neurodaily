@@ -1,9 +1,10 @@
 package br.com.neurodaily.repository;
 
+import br.com.neurodaily.model.domain.Avaliacao;
 import br.com.neurodaily.model.domain.NotaAvaliacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AvaliacaoRepository extends JpaRepository<NotaAvaliacao, Long> {
+public interface AvaliacaoRepository extends JpaRepository<Avaliacao, Long> {
 
-    NotaAvaliacao findById(long id);
+    Avaliacao findById(long id);
 }

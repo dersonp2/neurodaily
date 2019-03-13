@@ -1,6 +1,8 @@
 package br.com.neurodaily.service;
 
+import br.com.neurodaily.model.domain.Avaliacao;
 import br.com.neurodaily.model.domain.NotaAvaliacao;
+import br.com.neurodaily.repository.AvaliacaoRepository;
 import br.com.neurodaily.repository.NotaAvaliacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,23 +12,25 @@ import org.springframework.transaction.annotation.Transactional;
 public class AvaliacaoService {
 
     @Autowired
-    private NotaAvaliacaoRepository notaAvaliacaoRepository;
+    private AvaliacaoRepository avaliacaoRepository;
+
+    @Autowired
+    private NotaAvaliacaoService notaAvaliacaoService;
 
 
     @Transactional
-    public NotaAvaliacao salvar(NotaAvaliacao notaAvaliacao) {
-        NotaAvaliacao notaAvaliacaoBusca = buscarNotaAvaliacao(notaAvaliacao.getId());
-        if (notaAvaliacaoBusca != null) {
-            notaAvaliacao = notaAvaliacaoBusca;
-        } else {
-            notaAvaliacao = notaAvaliacaoRepository.save(notaAvaliacao);
+    public Avaliacao salvar(Avaliacao avaliacao) {
+        if(avaliacao != null &&
+        avaliacao.getNotaAvaliacao() != null &&
+        avaliacao.getNotaAvaliacao().getId() == null){
+                avaliacao.setNotaAvaliacao(notaAvaliacaoService.salvar(avaliacao.getNotaAvaliacao()));
         }
-
-        return notaAvaliacao;
+        
+        return avaliacao;
     }
 
-    public NotaAvaliacao buscarNotaAvaliacao(Long id) {
-        NotaAvaliacao notaAvaliacaoBusca = notaAvaliacaoRepository.findById(id.longValue());
+    public Avaliacao buscarNotaAvaliacao(Long id) {
+        Avaliacao notaAvaliacaoBusca = avaliacaoRepository.findById(id.longValue());
         return notaAvaliacaoBusca;
     }
 }
