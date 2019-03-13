@@ -17,7 +17,7 @@ public class PessoaResource {
     private PessoaService pessoaService;
 
     @PostMapping
-    public ResponseEntity<Pessoa> salvarProfissao(@RequestBody Pessoa pessoa){
+    public ResponseEntity<Pessoa> salvarPessoa(@RequestBody Pessoa pessoa){
         Pessoa n = pessoaService.salvar(pessoa);
         return new ResponseEntity<Pessoa>(n, HttpStatus.CREATED);
     }

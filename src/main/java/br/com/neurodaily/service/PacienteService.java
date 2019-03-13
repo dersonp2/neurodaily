@@ -1,6 +1,8 @@
 package br.com.neurodaily.service;
 
+import br.com.neurodaily.model.domain.Paciente;
 import br.com.neurodaily.model.domain.Pessoa;
+import br.com.neurodaily.repository.PacienteRepository;
 import br.com.neurodaily.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,36 +12,36 @@ import org.springframework.transaction.annotation.Transactional;
 public class PacienteService {
 
     @Autowired
-    private PessoaRepository pessoaRepository;
+    private PessoaService pessoaService;
 
     @Autowired
-    private DocumentoPessoalService documentoPessoalService;
-
-    @Autowired
-    private SexoService sexoService;
+    private PacienteRepository pacienteRepository;
 
     @Transactional
-    public Pessoa salvar(Pessoa pessoa) {
-        if (pessoa != null
-                && pessoa.getDocumentoPessoal() != null
-                && pessoa.getDocumentoPessoal().getId() == null) {
-            //Cadastrar Doc Pessoal
-            pessoa.setDocumentoPessoal(documentoPessoalService.salvar(pessoa.getDocumentoPessoal()));
+    public Paciente salvar(Paciente paciente) {
+        if (paciente != null
+                && paciente.getPessoa() != null
+                && paciente.getPessoa().getId() == null) {
+            paciente.setPessoa(pessoaService.salvar(paciente.getPessoa()));
         }
-        if (pessoa != null
-                && pessoa.getSexo() != null
-                && pessoa.getSexo().getId() == null) {
-            pessoa.setSexo(sexoService.salvar(pessoa.getSexo()));
+        if (paciente != null
+                && paciente.getResponsavel() != null
+                && paciente.getResponsavel().getId() == null) {
+            paciente.setResponsavel(pessoaService.salvar(paciente.getResponsavel()));
         }
-        pessoa = pessoaRepository.save(pessoa);
-
-        return pessoa;
+        paciente = pacienteRepository.save(paciente);
+        return paciente;
     }
 
-    public Pessoa buscarPessoa(Long id) {
-        Pessoa pessoa = pessoaRepository.findById(id.longValue());
-        return pessoa;
+    public Paciente buscarPacienteId(Long id) {
+        Paciente paciente = pacienteRepository.findById(id.longValue());
+        return paciente;
     }
+    public Paciente buscarPacienteId(String cpf) {
+        Paciente paciente = pacienteRepository.findByPessoaDocumentoPessoalCpf(cpf);
+        return paciente;
+    }
+
 
 }
 

@@ -14,7 +14,7 @@ public class Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ND01_PESSOA_SEQ")
     @Column (name = "ND01_COD_PESSOA")
-    private long id;
+    private Long id;
 
     @Column (name = "ND01_NOME")
     private String nome;
@@ -31,11 +31,11 @@ public class Pessoa implements Serializable {
     @JoinColumn(name = "FKND01ND11_COD_SEXO")
     private Sexo sexo;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
