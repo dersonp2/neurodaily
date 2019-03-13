@@ -35,7 +35,7 @@ public class PacienteResource {
     }
 
     @GetMapping
-    public ResponseEntity<List<Paciente>> listarPacientes(@PathVariable Long id){
+    public ResponseEntity<List<Paciente>> listarPacientes(){
         return new ResponseEntity<List<Paciente>>(pacienteRepository.findAll(), HttpStatus.OK);
     }
 

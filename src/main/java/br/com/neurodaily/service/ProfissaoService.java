@@ -15,7 +15,7 @@ public class ProfissaoService {
 
     @Transactional
     public Profissao salvar(Profissao profissao) {
-        Profissao profissaoBusca = buscarProfissaoNome(profissao);
+        Profissao profissaoBusca = buscarProfissaoNome(profissao.getDescricao());
         if (profissaoBusca != null) {
             profissao = profissaoBusca;
         } else {
@@ -25,11 +25,11 @@ public class ProfissaoService {
         return profissao;
     }
 
-    private Profissao buscarProfissaoNome(Profissao profissao) {
+    private Profissao buscarProfissaoNome(String profissao) {
         Profissao profissaoBusca = null;
-        if (profissao != null && profissao.getDescricao() != null) {
+        if (profissao != null && profissao != null) {
             profissaoBusca = profissaoRepository
-                    .findByDescricao(profissao.getDescricao());
+                    .findByDescricao(profissao);
         }
         return profissaoBusca;
     }

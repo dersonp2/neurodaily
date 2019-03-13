@@ -13,12 +13,12 @@ public class Profissao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ND13_PROFISSAO_SEQ")
     @Column(name = "ND13_COD_PROFISSAO")
-    private long id;
+    private Long id;
 
     @Column (name = "ND13_DESCRICAO")
     private String descricao;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
