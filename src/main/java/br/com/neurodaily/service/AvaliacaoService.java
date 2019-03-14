@@ -17,21 +17,37 @@ public class AvaliacaoService {
     @Autowired
     private NotaAvaliacaoService notaAvaliacaoService;
 
+    @Autowired
+    private ProfissionalService profissionalService;
+
+    @Autowired
+    private PacienteService pacienteService;
+
 
     @Transactional
     public Avaliacao salvar(Avaliacao avaliacao) {
-        if(avaliacao != null &&
-        avaliacao.getNotaAvaliacao() != null &&
-        avaliacao.getNotaAvaliacao().getId() == null){
+        if (avaliacao != null) {
+            if (avaliacao.getNotaAvaliacao() != null &&
+                    avaliacao.getNotaAvaliacao().getId() == null) {
                 avaliacao.setNotaAvaliacao(notaAvaliacaoService.salvar(avaliacao.getNotaAvaliacao()));
+            }
+            if (avaliacao.getProfissional() != null &&
+                    avaliacao.getProfissional().getId() == null) {
+                avaliacao.setProfissional(profissionalService.salvar(avaliacao.getProfissional()));
+            }
+
+            if (avaliacao.getPaciente() != null &&
+                    avaliacao.getPaciente().getId() == null) {
+                avaliacao.setPaciente(pacienteService.salvar(avaliacao.getPaciente()));
+            }
         }
-        
+        avaliacao = avaliacaoRepository.save(avaliacao);
         return avaliacao;
     }
 
-    public Avaliacao buscarNotaAvaliacao(Long id) {
-        Avaliacao notaAvaliacaoBusca = avaliacaoRepository.findById(id.longValue());
-        return notaAvaliacaoBusca;
+    public Avaliacao buscarAvaliacao(Long id) {
+        Avaliacao avaliacaoBusca = avaliacaoRepository.findById(id.longValue());
+        return avaliacaoBusca;
     }
 }
 
