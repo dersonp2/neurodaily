@@ -8,7 +8,6 @@ public interface ProfissionalRepository extends JpaRepository<Profissional, Long
 
     Profissional findById(long id);
 
-    Profissional findByPessoaDocumentoPessoalCpf(String cpf);
 
 
 }

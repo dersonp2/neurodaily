@@ -41,11 +41,6 @@ public class ProfissionalService {
         return profissional;
     }
 
-    public Profissional buscarProfissionalCpf(String cpf) {
-        Profissional profissional = profissionalRepository.findByPessoaDocumentoPessoalCpf(cpf);
-        return profissional;
-    }
-
 
 }
 

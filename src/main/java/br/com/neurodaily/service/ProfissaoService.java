@@ -26,11 +26,8 @@ public class ProfissaoService {
     }
 
     private Profissao buscarProfissaoNome(String profissao) {
-        Profissao profissaoBusca = null;
-        if (profissao != null && profissao != null) {
-            profissaoBusca = profissaoRepository
+           Profissao profissaoBusca = profissaoRepository
                     .findByDescricao(profissao);
-        }
         return profissaoBusca;
     }
 }

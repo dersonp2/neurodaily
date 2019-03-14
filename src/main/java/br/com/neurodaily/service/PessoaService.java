@@ -22,12 +22,12 @@ public class PessoaService {
 
     @Transactional
     public Pessoa salvar(Pessoa pessoa) {
-        if (pessoa != null
-                && pessoa.getDocumentoPessoal() != null
-                && pessoa.getDocumentoPessoal().getId() == null) {
-            //Cadastrar Doc Pessoal
-            pessoa.setDocumentoPessoal(documentoPessoalService.salvar(pessoa.getDocumentoPessoal()));
-        }
+//        if (pessoa != null
+//                && pessoa.getDocumentoPessoal() != null
+//                && pessoa.getDocumentoPessoal().getId() == null) {
+//            //Cadastrar Doc Pessoal
+//            pessoa.setDocumentoPessoal(documentoPessoalService.salvar(pessoa.getDocumentoPessoal()));
+//        }
         if (pessoa != null
                 && pessoa.getSexo() != null
                 && pessoa.getSexo().getId() == null) {

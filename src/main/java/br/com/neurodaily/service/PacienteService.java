@@ -38,11 +38,5 @@ public class PacienteService {
         return paciente;
     }
 
-    public Paciente buscarPacienteCpf(String cpf) {
-        Paciente paciente = pacienteRepository.findByPessoaDocumentoPessoalCpf(cpf);
-        return paciente;
-    }
-
-
 }
 

@@ -7,7 +7,5 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 
     Paciente findById(long id);
 
-    Paciente findByPessoaDocumentoPessoalCpf(String cpf);
-
 
 }

@@ -25,7 +25,7 @@ public class AvaliacaoService {
         avaliacao.getNotaAvaliacao().getId() == null){
                 avaliacao.setNotaAvaliacao(notaAvaliacaoService.salvar(avaliacao.getNotaAvaliacao()));
         }
-        
+
         return avaliacao;
     }
 

@@ -29,46 +29,8 @@ public class DocumentoPessoal implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date data;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToOne
+    @JoinColumn(name = "FKND02ND01_COD_PESSOA")
+    private Pessoa pessoa;
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public String getSus() {
-        return sus;
-    }
-
-    public void setSus(String sus) {
-        this.sus = sus;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-//    @ManyToOne
-//    @JoinColumn(name = "FKND02ND06_COD_ORGAO_EXPEDIDOR")
-//    private OrgaoEspedidor orgaoEspedidor;
 }
