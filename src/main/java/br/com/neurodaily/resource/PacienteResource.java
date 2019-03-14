@@ -2,6 +2,7 @@ package br.com.neurodaily.resource;
 
 import br.com.neurodaily.model.domain.Paciente;
 import br.com.neurodaily.model.domain.Pessoa;
+import br.com.neurodaily.model.helper.PacienteHelper;
 import br.com.neurodaily.repository.PacienteRepository;
 import br.com.neurodaily.service.PacienteService;
 import br.com.neurodaily.service.PessoaService;
@@ -23,7 +24,7 @@ public class PacienteResource {
     private PacienteRepository pacienteRepository;
 
     @PostMapping
-    public ResponseEntity<Paciente> salvarPaciente(@RequestBody Paciente paciente){
+    public ResponseEntity<Paciente> salvarPaciente(@RequestBody PacienteHelper paciente){
         Paciente n = pacienteService.salvar(paciente);
         return new ResponseEntity<Paciente>(n, HttpStatus.CREATED);
     }

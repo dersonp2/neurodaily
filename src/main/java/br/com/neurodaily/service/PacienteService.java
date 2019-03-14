@@ -1,7 +1,10 @@
 package br.com.neurodaily.service;
 
+import br.com.neurodaily.model.domain.DocumentoPessoal;
 import br.com.neurodaily.model.domain.Paciente;
 import br.com.neurodaily.model.domain.Pessoa;
+import br.com.neurodaily.model.domain.PessoaContato;
+import br.com.neurodaily.model.helper.PacienteHelper;
 import br.com.neurodaily.repository.PacienteRepository;
 import br.com.neurodaily.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +20,46 @@ public class PacienteService {
     @Autowired
     private PacienteRepository pacienteRepository;
 
+    @Autowired
+    private DocumentoPessoalService documentoPessoalService;
+
+    @Autowired
+    private PessoaContatoService pessoaContatoService;
+
+
     @Transactional
-    public Paciente salvar(Paciente paciente) {
-        if (paciente != null
-                && paciente.getPessoa() != null
-                && paciente.getPessoa().getId() == null) {
-            paciente.setPessoa(pessoaService.salvar(paciente.getPessoa()));
+    public Paciente salvar(PacienteHelper pacienteHelper) {
+        if (pacienteHelper != null
+                && pacienteHelper.getPaciente().getPessoa() != null
+                && pacienteHelper.getPaciente().getPessoa().getId() == null) {
+            pacienteHelper.getPaciente().setPessoa(pessoaService.salvar(pacienteHelper.getPaciente().getPessoa()));
         }
-        if (paciente != null
-                && paciente.getResponsavel() != null
-                && paciente.getResponsavel().getId() == null) {
-            paciente.setResponsavel(pessoaService.salvar(paciente.getResponsavel()));
+
+        if (pacienteHelper != null &&
+                pacienteHelper.getDocumentoPessoal() != null &&
+                pacienteHelper.getDocumentoPessoal().getId() == null) {
+            pacienteHelper.setDocumentoPessoal(documentoPessoalService.salvar(pacienteHelper.getDocumentoPessoal()));
         }
-        paciente = pacienteRepository.save(paciente);
+
+        if (pacienteHelper != null
+                && pacienteHelper.getPessoaContatos() != null
+                && !pacienteHelper.getPessoaContatos().isEmpty()) {
+
+            for (PessoaContato pessoaContato : pacienteHelper.getPessoaContatos()) {
+                pessoaContato.setPessoa(pacienteHelper.getPaciente().getPessoa());
+                pessoaContatoService.salvar(pessoaContato);
+            }
+
+        }
+
+        if (pacienteHelper != null
+                && pacienteHelper.getPaciente().getResponsavel() != null
+                && pacienteHelper.getPaciente().getResponsavel().getId() == null) {
+            pacienteHelper.getPaciente().setResponsavel(pessoaService.salvar(pacienteHelper.getPaciente().getResponsavel()));
+        }
+        Paciente paciente = pacienteRepository.save(pacienteHelper.getPaciente());
+
+
         return paciente;
     }
 

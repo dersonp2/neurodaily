@@ -13,7 +13,7 @@ public class Contato implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ND07_CONTATO_SEQ")
     @Column (name = "ND07_COD_CONTATO")
-    private long id;
+    private Long id;
 
     @Column (name = "ND07_DESCRICAO")
     private String descricao;
