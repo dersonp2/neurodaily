@@ -42,25 +42,33 @@ public class PacienteService {
             pacienteHelper.setDocumentoPessoal(documentoPessoalService.salvar(pacienteHelper.getDocumentoPessoal()));
         }
 
-        if (pacienteHelper != null
-                && pacienteHelper.getPessoaContatos() != null
-                && !pacienteHelper.getPessoaContatos().isEmpty()) {
+//        if (pacienteHelper != null
+//                && pacienteHelper.getPessoaContatos() != null
+//                && !pacienteHelper.getPessoaContatos().isEmpty()) {
+//
+//            for (PessoaContato pessoaContato : pacienteHelper.getPessoaContatos()) {
+//                pessoaContato.setPessoa(pacienteHelper.getPaciente().getPessoa());
+//                pessoaContatoService.salvar(pessoaContato);
+//            }
 
-            for (PessoaContato pessoaContato : pacienteHelper.getPessoaContatos()) {
-                pessoaContato.setPessoa(pacienteHelper.getPaciente().getPessoa());
-                pessoaContatoService.salvar(pessoaContato);
-            }
-
-        }
+        //}
 
         if (pacienteHelper != null
                 && pacienteHelper.getPaciente().getResponsavel() != null
                 && pacienteHelper.getPaciente().getResponsavel().getId() == null) {
             pacienteHelper.getPaciente().setResponsavel(pessoaService.salvar(pacienteHelper.getPaciente().getResponsavel()));
         }
+
+        if (pacienteHelper != null &&
+                pacienteHelper.getDocumentoPessoalResponsavel() != null &&
+                pacienteHelper.getDocumentoPessoalResponsavel().getId() == null) {
+            pacienteHelper.getDocumentoPessoalResponsavel().
+                    setPessoa(pacienteHelper.getPaciente().getResponsavel());
+            pacienteHelper.setDocumentoPessoalResponsavel
+                    (documentoPessoalService.salvar(pacienteHelper.getDocumentoPessoalResponsavel()));
+        }
+
         Paciente paciente = pacienteRepository.save(pacienteHelper.getPaciente());
-
-
         return paciente;
     }
 
