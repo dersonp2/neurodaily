@@ -21,7 +21,7 @@ public class SexoResource {
     private SexoService sexoService;
 
     @PostMapping
-    public ResponseEntity<Sexo> salvarProfissao(@RequestBody Sexo sexo){
+    public ResponseEntity<Sexo> sexoSalvar(@RequestBody Sexo sexo){
         Sexo p = sexoService.salvar(sexo);
         return new ResponseEntity<Sexo>(p, HttpStatus.CREATED);
     }
@@ -30,6 +30,10 @@ public class SexoResource {
     public ResponseEntity<Sexo> buscarSexo(@PathVariable Long id){
         Sexo n = sexoService.buscarSexo(id);
         return new ResponseEntity<Sexo>(n, HttpStatus.OK);
+    }
+    @GetMapping
+    public ResponseEntity<List<Sexo>> listaSexo(){
+        return new ResponseEntity<List<Sexo>>(sexoService.listaSexo(),HttpStatus.OK);
     }
 
 }

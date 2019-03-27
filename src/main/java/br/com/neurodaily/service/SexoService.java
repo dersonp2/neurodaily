@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class SexoService {
 
@@ -34,6 +36,10 @@ public class SexoService {
     public Sexo buscarSexoDescricao(String descricao) {
         Sexo notaAvaliacaoBusca = sexoRepository.findByDescricao(descricao);
         return notaAvaliacaoBusca;
+    }
+
+    public List<Sexo> listaSexo(){
+        return sexoRepository.findAll();
     }
 
 }

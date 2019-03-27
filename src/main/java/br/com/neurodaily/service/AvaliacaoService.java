@@ -36,10 +36,10 @@ public class AvaliacaoService {
                 avaliacao.setProfissional(profissionalService.salvar(avaliacao.getProfissional()));
             }
 
-            if (avaliacao.getPaciente() != null &&
-                    avaliacao.getPaciente().getId() == null) {
-                avaliacao.setPaciente(pacienteService.salvar(avaliacao.getPaciente()));
-            }
+//            if (avaliacao.getPaciente() != null &&
+//                    avaliacao.getPaciente().getId() == null) {
+//                avaliacao.setPaciente(pacienteService.salvar(avaliacao.getPaciente()));
+//            }
         }
         avaliacao = avaliacaoRepository.save(avaliacao);
         return avaliacao;

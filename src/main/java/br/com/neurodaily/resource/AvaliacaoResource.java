@@ -21,11 +21,11 @@ public class AvaliacaoResource {
         Avaliacao n = avaliacaoService.salvar(avaliacao);
         return new ResponseEntity<Avaliacao>(n, HttpStatus.CREATED);
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Avaliacao> buscarNotaId(@PathVariable Long id){
-        Avaliacao n = avaliacaoService.buscarNotaAvaliacao(id);
-        return new ResponseEntity<Avaliacao>(n, HttpStatus.OK);
-    }
+//
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Avaliacao> buscarNotaId(@PathVariable Long id){
+//        Avaliacao n = avaliacaoService.buscarNotaAvaliacao(id);
+//        return new ResponseEntity<Avaliacao>(n, HttpStatus.OK);
+//    }
 
 }
