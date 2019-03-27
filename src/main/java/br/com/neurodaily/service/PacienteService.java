@@ -38,6 +38,7 @@ public class PacienteService {
         if (pacienteHelper != null &&
                 pacienteHelper.getDocumentoPessoal() != null &&
                 pacienteHelper.getDocumentoPessoal().getId() == null) {
+            pacienteHelper.getDocumentoPessoal().setPessoa(pacienteHelper.getPaciente().getPessoa());
             pacienteHelper.setDocumentoPessoal(documentoPessoalService.salvar(pacienteHelper.getDocumentoPessoal()));
         }
 

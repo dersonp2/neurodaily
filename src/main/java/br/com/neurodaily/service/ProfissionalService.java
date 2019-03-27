@@ -22,11 +22,11 @@ public class ProfissionalService {
 
     @Transactional
     public Profissional salvar(Profissional profissional) {
-        if (profissional != null
-                && profissional.getPessoa() != null
-                && profissional.getPessoa().getId() == null) {
-            profissional.setPessoa(pessoaService.salvar(profissional.getPessoa()));
-        }
+//        if (profissional != null
+//                && profissional.getPessoa() != null
+//                && profissional.getPessoa().getId() == null) {
+//            profissional.setPessoa(pessoaService.salvar(profissional.getPessoa()));
+//        }
         if (profissional != null
                 && profissional.getProfissao() != null
                 && profissional.getProfissao().getId() == null) {

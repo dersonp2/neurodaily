@@ -29,43 +29,4 @@ public class Profissional implements Serializable{
     @JoinColumn (name = "FKND12ND01_COD_PESSOA")
     private Pessoa pessoa;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(String dataCadastro) {
-        this.dataCadastro = dataCadastro;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    public Profissao getProfissao() {
-        return profissao;
-    }
-
-    public void setProfissao(Profissao profissao) {
-        this.profissao = profissao;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
 }
