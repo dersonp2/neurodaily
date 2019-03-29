@@ -8,11 +8,11 @@
         <version>2.1.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
-    <version>0</version>
+    <groupId>br.com.neurodaily</groupId>
+    <artifactId>neurodaily</artifactId>
+    <version>1.0</version>
     <packaging>war</packaging>
-    <name>NeuroDaily</name>
+    <name>neurodaily</name>
     <description>Projeto Neuro Daily</description>
 
     <properties>
