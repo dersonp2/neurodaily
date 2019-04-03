@@ -24,24 +24,24 @@ public class PacienteResource {
     private PacienteRepository pacienteRepository;
 
     @PostMapping
-    public ResponseEntity<Paciente> salvarPaciente(@RequestBody PacienteHelper paciente){
+    public ResponseEntity<Paciente> salvarPaciente(@RequestBody PacienteHelper paciente) {
         Paciente n = pacienteService.salvar(paciente);
         return new ResponseEntity<Paciente>(n, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Paciente> buscarPacienteId(@PathVariable Long id){
+    public ResponseEntity<Paciente> buscarPacienteId(@PathVariable Long id) {
         Paciente n = pacienteService.buscarPacienteId(id.longValue());
         return new ResponseEntity<Paciente>(n, HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<Paciente>> listarPacientes(){
+    public ResponseEntity<List<Paciente>> listarPacientes() {
         return new ResponseEntity<List<Paciente>>(pacienteRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/nome/{nome}")
-    public ResponseEntity<List<Paciente>> buscarPacienteNome(@PathVariable String nome){
-        return new ResponseEntity<List<Paciente>>(pacienteRepository.filtrar(nome), HttpStatus.OK);
+    public ResponseEntity<List<Paciente>> buscarPacienteNome(@PathVariable String nome) {
+        return new ResponseEntity<List<Paciente>>(pacienteRepository.findPacienteByPessoaNome(nome), HttpStatus.OK);
     }
 }
