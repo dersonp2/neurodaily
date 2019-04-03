@@ -40,4 +40,8 @@ public class PacienteResource {
         return new ResponseEntity<List<Paciente>>(pacienteRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<List<Paciente>> buscarPacienteNome(@PathVariable String nome){
+        return new ResponseEntity<List<Paciente>>(pacienteRepository.filtrar(nome), HttpStatus.OK);
+    }
 }
