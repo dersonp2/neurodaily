@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Table (name = "ND06_ORGAO_EXPEDIDOR")
 @Data
 @SequenceGenerator(name = "ND06_ORGAO_EXPEDIDOR_SEQ", sequenceName = "ND06_ORGAO_EXPEDIDOR_SEQ", allocationSize = 1)
-public class OrgaoEspedidor implements Serializable {
+public class OrgaoExpedidor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ND06_ORGAO_EXPEDIDOR_SEQ")

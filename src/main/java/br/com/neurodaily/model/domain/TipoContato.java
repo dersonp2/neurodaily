@@ -14,7 +14,7 @@ public class TipoContato implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ND08_TIPO_CONTATO_SEQ")
     @Column (name = "ND08_COD_TIPO_CONTATO")
-    private long id;
+    private Long id;
 
     @Column (name = "ND08_DESCRICAO")
     private String descricao;

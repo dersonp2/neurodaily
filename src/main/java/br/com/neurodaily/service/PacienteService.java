@@ -42,16 +42,15 @@ public class PacienteService {
             pacienteHelper.setDocumentoPessoal(documentoPessoalService.salvar(pacienteHelper.getDocumentoPessoal()));
         }
 
-//        if (pacienteHelper != null
-//                && pacienteHelper.getPessoaContatos() != null
-//                && !pacienteHelper.getPessoaContatos().isEmpty()) {
-//
-//            for (PessoaContato pessoaContato : pacienteHelper.getPessoaContatos()) {
-//                pessoaContato.setPessoa(pacienteHelper.getPaciente().getPessoa());
-//                pessoaContatoService.salvar(pessoaContato);
-//            }
+        if (pacienteHelper != null
+                && pacienteHelper.getPessoaContatos() != null
+                && !pacienteHelper.getPessoaContatos().isEmpty()) {
 
-        //}
+            for (PessoaContato pessoaContato : pacienteHelper.getPessoaContatos()) {
+                pessoaContato.setPessoa(pacienteHelper.getPaciente().getPessoa());
+                pessoaContatoService.salvar(pessoaContato);
+            }
+        }
 
         if (pacienteHelper != null
                 && pacienteHelper.getPaciente().getResponsavel() != null

@@ -14,6 +14,6 @@ public class PacienteHelper implements Serializable {
     private Paciente paciente;
     private DocumentoPessoal documentoPessoal;
     private DocumentoPessoal documentoPessoalResponsavel;
-   // private List<PessoaContato> pessoaContatos;
+    private List<PessoaContato> pessoaContatos;
 
 }
