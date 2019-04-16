@@ -31,10 +31,10 @@ public class AvaliacaoService {
                     avaliacao.getNotaAvaliacao().getId() == null) {
                 avaliacao.setNotaAvaliacao(notaAvaliacaoService.salvar(avaliacao.getNotaAvaliacao()));
             }
-            if (avaliacao.getProfissional() != null &&
-                    avaliacao.getProfissional().getId() == null) {
-                avaliacao.setProfissional(profissionalService.salvar(avaliacao.getProfissional()));
-            }
+//            if (avaliacao.getProfissional() != null &&
+//                    avaliacao.getProfissional().getId() == null) {
+//                avaliacao.setProfissional(profissionalService.salvar(avaliacao.getProfissional()));
+//            }
 
 //            if (avaliacao.getPaciente() != null &&
 //                    avaliacao.getPaciente().getId() == null) {

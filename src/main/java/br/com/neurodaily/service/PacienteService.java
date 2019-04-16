@@ -29,6 +29,7 @@ public class PacienteService {
 
     @Transactional
     public Paciente salvar(PacienteHelper pacienteHelper) {
+
         if (pacienteHelper != null
                 && pacienteHelper.getPaciente().getPessoa() != null
                 && pacienteHelper.getPaciente().getPessoa().getId() == null) {
